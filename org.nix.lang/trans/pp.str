@@ -1,0 +1,49 @@
+module pp
+
+imports
+
+  libstratego-gpp
+  libspoofax/sdf/pp
+  libspoofax/editor/refactoring/-
+  pp/nix-parenthesize
+  pp/nix-pp
+
+rules
+
+  editor-format:
+    (node, _, ast, path, project-path) -> (filename, result)
+    with
+      ext      := <get-extension> path
+    ; filename := <guarantee-extension(|$[pp.[ext]])> path
+    ; result   := <pp-debug> node
+
+rules
+  
+  pp-nix-string =
+    parenthesize-nix
+    ; prettyprint-nix-start-symbols
+    ; !V([], <id>)
+    ; box2text-string(|120)
+      
+  pp-partial-nix-string =
+    parenthesize-nix
+    ; prettyprint-nix
+    ; !V([], <id>)
+    ; box2text-string(|120)
+    
+  pp-partial-nix-string(|sort) =
+    parenthesize-nix
+    ; prettyprint-nix(|sort)
+    ; !V([], <id>)
+    ; box2text-string(|120)  
+      
+  pp-debug :
+    ast -> result
+    with
+       result := <pp-nix-string> ast
+    <+ <bottomup(try(not(is-string); not(is-list); not(pp-nix-string); debug(!"cannot pp ")))> ast
+    ;  result := ""
+
+rules
+  
+  construct-textual-change = construct-textual-change(pp-partial-nix-string, parenthesize, override-reconstruction, resugar)

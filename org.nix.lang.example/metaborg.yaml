@@ -1,0 +1,13 @@
+---
+id: org.nixos:org.nix.lang.example:1.0.0-SNAPSHOT
+name: nix
+dependencies:
+  compile:
+  - org.nixos:org.nix.lang:1.0.0-SNAPSHOT
+debug:
+  typesmart: false
+runtime:
+  nabl2:
+    debug: analysis files
+build:
+  useBuildSystemSpec: true

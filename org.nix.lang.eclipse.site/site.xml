@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.nix.lang.eclipse.feature_1.0.0.qualifier.jar" id="org.nix.lang.eclipse.feature" version="1.0.0.qualifier">
+      <category name="orgnixlang"/>
+   </feature>
+   <category-def name="orgnixlang" label="orgnixlang language Eclipse plugin">
+      <description>
+         orgnixlang language Eclipse plugin.
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+  id="org.nix.lang.eclipse.feature"
+  label="orgnixlang language Eclipse plugin"
+  version="1.0.0.qualifier"
+>
+  <plugin id="org.nix.lang.eclipse" version="1.0.0.qualifier" unpack="true" />
+  <includes id="org.metaborg.spoofax.eclipse.feature" version="0" />
+</feature>

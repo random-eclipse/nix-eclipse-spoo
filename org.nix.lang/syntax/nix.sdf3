@@ -1,0 +1,25 @@
+module nix
+
+imports
+ 
+    Common
+
+context-free start-symbols
+
+    Expr
+
+context-free syntax
+
+    Expr = <(<Expr>)>  {bracket}
+
+context-free syntax
+
+    Expr.Name = < <Name> >
+
+    Expr.Bind = < <Name> = <Expr> ";" >
+
+context-free syntax
+    
+    Name.Full = < {<ID> "."}+ >
+
+    

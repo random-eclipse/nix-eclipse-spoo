@@ -1,0 +1,17 @@
+
+# eclispe
+
+bin/
+.project
+.settings/
+.classpath
+
+# maven
+
+target/
+
+# spoo
+
+*.log
+src-gen/
+.polyglot*

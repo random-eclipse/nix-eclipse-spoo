@@ -1,0 +1,7 @@
+module parse
+
+language nix
+
+test parse name [[
+    abcd
+]] parse succeeds
